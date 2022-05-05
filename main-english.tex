@@ -1,6 +1,6 @@
 % !TeX spellcheck = en-US
 % !TeX encoding = utf8
-% !TeX program = lualatex
+% !TeX program = pdflatex
 % !BIB program = biber
 % -*- coding:utf-8 mod:LaTeX -*-
 
@@ -70,8 +70,8 @@
 \Titelblatt
 
 %Eigener Seitenstil fuer die Kurzfassung und das Inhaltsverzeichnis
-\deftripstyle{preamble}{}{}{}{}{}{\pagemark}
-%Doku zu deftripstyle: scrguide.pdf
+\deftriplepagestyle{preamble}{}{}{}{}{}{\pagemark}
+%Doku zu deftriplepagestyle: scrguide.pdf
 \pagestyle{preamble}
 \renewcommand*{\chapterpagestyle}{preamble}
 
@@ -137,7 +137,7 @@
 \listoftables
 
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
-%\lstlistoflistings 
+%\lstlistoflistings
 %ansonsten:
 \ifdeutsch
   \listof{Listing}{Verzeichnis der Listings}

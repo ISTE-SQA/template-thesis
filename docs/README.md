@@ -33,12 +33,12 @@ For [architectural decision records](https://adr.github.io) see [docs/adr](https
 ## Characteristics of the template
 
 - Most recent packages and package configuration based on long-time experience.
-- [lualatex](http://www.luatex.org/) to enable proper typeset [ligatures](https://en.wikipedia.org/wiki/Typographic_ligature).
+- ~~[lualatex](http://www.luatex.org/) to enable proper typeset [ligatures](https://en.wikipedia.org/wiki/Typographic_ligature).~~
   For older systems, [pdflatex](https://en.wikipedia.org/wiki/PdfTeX) is still supported.
 - Open for contributions.
 - [latexmk] - Reasoning available at <https://tex.stackexchange.com/a/249243/9075>.
 - [biblatex]+[biber] instead of plain [bibtex], because biblatex fully supports UTF-8 and commands such as `\citeauthor{...}` work out of the box. See also <https://tex.stackexchange.com/q/8411/9075>.
-- Automatic adjustment of wrong [ligatures](https://en.wikipedia.org/wiki/Typographic_ligature) using the [selnolig](https://tex.meta.stackexchange.com/questions/2884/new-package-selnolig-that-automates-suppression-of-typographic-ligatures) package
+- ~~Automatic adjustment of wrong [ligatures](https://en.wikipedia.org/wiki/Typographic_ligature) using the [selnolig](https://tex.meta.stackexchange.com/questions/2884/new-package-selnolig-that-automates-suppression-of-typographic-ligatures) package~~
 - Full Unicode (UTF-8) support
 - Optional: Render listings using [minted](https://github.com/gpoore/minted/), which provides better output than [listings](https://ctan.org/pkg/listings), but requires [pygments](http://pygments.org/) to be installed.
 - Optional: Direct inclusion of [PlantUML](http://plantuml.com/) diagram.s
@@ -48,9 +48,8 @@ Even though AuToLaTeX is [more powerful than latexmk](http://www.arakhne.org/aut
 ## Quick start
 
 1. Download
-    1. Go to the latest release via <https://github.com/latextemplates/scientific-thesis-template/releases>.
-    2. Download the file `source.zip`
-    3. Extract `source.zip` to the directory you want to work. E.g., `c:\users\user\documents\thesis`.
+    1. Go to the development version at <https://github.com/latextemplates/scientific-thesis-template/archive/main.zip>. Reason: LaTeX packages change so fast over time and we cannot do a release on each change.
+    2. Extract `scientific-thesis-template-main.zip` to the directory you want to work. E.g., `c:\users\user\documents\thesis`.
 2. Start texing
     - University of Stuttgart:
         - English: `main-english.tex`
@@ -68,7 +67,7 @@ See [overleaf](overleaf.md).
 ### Usage using plain git
 
 We do not recommend to fork this project as a fork denotes that you work on improving the template itself.
-Thus, just create a new git repository and populate it using the files provided at `source.zip`, which you downloaded at the [latest release page](https://github.com/latextemplates/scientific-thesis-template/releases/latest).
+Thus, just create a new git repository and populate it using the files provided at `scientific-thesis-template-<VERSION>.zip`, which you downloaded at the [latest release page](https://github.com/latextemplates/scientific-thesis-template/releases/latest).
 
 ## Recommended LaTeX environments
 
@@ -109,10 +108,11 @@ This is provides a perfectly configured latex distribution with all required too
    Will download approx. 4GB.
 4. Open TeXstudio
 5. Options > Configure TeXstudio > Commands
-6. Set "LuaLaTeX" to `docker run --rm -v DIROFTEXDOCUMENT:/home danteev/texlive lualatex --shell-escape -synctex=1 -synctex=1 -interaction=nonstopmode %.tex`, replace `DIROFTEXDOCUMENT` by the directory of your latex document. Example: `/home/user/thesis`.
-7. Set "Biber" to `docker run --rm -v DIROFTEXDOCUMENT:/home koppor/texlive biber %`, replace `DIROFTEXDOCUMENT` by the directory of your latex document. Example: `/home/user/thesis`.
-8. Check if the "docker pull" command from step 3 succeed. If not, wait.
-9. Try to press the "Compile" (<kbd>F6</kbd>) button in TeXstudio.
+6. Set "PdfLaTeX" to `docker run --rm -v DIROFTEXDOCUMENT:/home danteev/texlive pdflatex --shell-escape -synctex=1 -interaction=nonstopmode %.tex`, replace `DIROFTEXDOCUMENT` by the directory of your latex document. Example: `/home/user/thesis`.
+7. Set "LuaLaTeX" to `docker run --rm -v DIROFTEXDOCUMENT:/home danteev/texlive lualatex --shell-escape -synctex=1 -interaction=nonstopmode %.tex`, replace `DIROFTEXDOCUMENT` by the directory of your latex document. Example: `/home/user/thesis`.
+8. Set "Biber" to `docker run --rm -v DIROFTEXDOCUMENT:/home danteev/texlive biber %`, replace `DIROFTEXDOCUMENT` by the directory of your latex document. Example: `/home/user/thesis`.
+9. Check if the "docker pull" command from step 3 succeed. If not, wait.
+10. Try to press the "Compile" (<kbd>F6</kbd>) button in TeXstudio.
 
 ## Installation hints for Windows
 
@@ -128,7 +128,7 @@ If you installed MiKTeX other ways, you have to run "Update MiKTeX (Admin)" and 
     2. Paste and hit <kbd>Enter</kbd> `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 1. Execute `choco feature enable -n=allowGlobalConfirmation` to get rid off additional installation confirmations.
 1. Execute `choco install texstudio sumatrapdf.install strawberryperl jre8 jabref languagetool` to install necessary tooling.
-1. In case [PlantUML](http://plantuml.com/) should be used, follow the installation instructions at <https://latextemplates.github.io/plantuml/> listed at the "pre-conditions" section.
+1. In case [PlantUML](http://plantuml.com/) should be used, follow the installation instructions at <https://koppor.github.io/plantuml/> listed at the "pre-conditions" section.
 1. For more recommended tooling see <https://github.com/koppor/koppors-chocolatey-scripts>.
 
 ### Recommended setup of MiKTeX
@@ -354,6 +354,49 @@ Sure. The [Hagenberg Thesis Document Collection](https://github.com/Digital-Medi
 However, they currently do not support microtype and not the cover of the University of Stuttgart.
 
 We are collecting alternatives at the issue [#25](https://github.com/latextemplates/scientific-thesis-template/issues/25) and plan to add a comparison to each other template.
+
+### Q: I get `Font "LatinModernMath-Regular" not found.`. What can I do?
+
+Error message:
+
+```text
+luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: Font "LatinModernMath-Regular" not found.
+luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
+
+! Package fontspec Error: The font "LatinModernMath-Regular" cannot be found.
+```
+
+Install the package `lm-math` manually.
+
+### Q: I get `! Package fontspec Error: The font "LinuxLibertineO" cannot be found.`. What can I do?
+
+Install the package `libertine` manually.
+
+### Q: I get `! Package fontspec Error: The font "TeXGyreTermes" cannot be found.`. What can I do?
+
+Install the package `tex-gyre` and `tex-gyre-math` manually.
+
+### Q: I get `! error:  (type 1): cannot find encoding file 'ntx-ot1-tlf.enc' for reading`. What can I do?
+
+See <https://tex.stackexchange.com/a/240850/9075>: Install the packages `newpx` and `newtxsf` manually.
+
+### Q: I get `! TeX capacity exceeded, sorry [main memory size=3000000].`. What can I do?
+
+Follow the steps at <https://tex.stackexchange.com/a/548335/9075>
+
+Try with following command
+
+     pdflatex -shell-escape --extra-mem-top=10000000 --synctex=1 main-german.tex
+
+See <https://tex.stackexchange.com/a/124206/9075> for details.
+
+### Q: I get `Unknown pattern ngerman-x-latest`. What can I do?
+
+On MiKTeX, one can solve it as follows:
+
+1. Disable `\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}`
+2. Compile the document. This way, miktex downloads additional packages. Including `hyphsubst`.
+3. Enable `\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}`
 
 ## Contained Files and Directories
 

@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+### Changed
+
+- Cleanup lualatex math and font config
+
+### Fixed
+
+- Fixed examples in latexhints
+
+### Removed
+
+## [3.0.0] &ndash; 2020-09-03
+
 ### Fixed
 
 - Fixed loading of newtxmath.
@@ -15,12 +29,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed font in math environment `\mathrm` to use "TeX Gyre Termes"
 - Fixed renaming of `\acronymname` to "Abkürzungsverzeichnis" when using the german template
 - Fixed loading of "TeX Gyre Heros" variants on LuaLaTeX
+- Fixed the broken PlantUML setup link in the documentation
 
 ### Changed
 
 - Simplified styleguide of `config.tex`
 - Removed package [dtk-logos](https://ctan.org/tex-archive/usergrps/dante/dtk), because it causes issues with lualatex
-- Removed package [amssymb] to fix compilation error. [#125](https://github.com/latextemplates/scientific-thesis-template/issues/125)
+- Removed package [amssymb](https://ctan.org/pkg/amsfonts?lang=de) to fix compilation error. [#125](https://github.com/latextemplates/scientific-thesis-template/issues/125)
+- Change documentation to tell users to download `master.zip` instead of the latest release.
+- Switch from lualatex to pdflatex as default compiler.
 
 ### Added
 
@@ -260,7 +277,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add initial [CONTRIBUTING.md](CONTRIBUTING.md).
 - `number` for a thesis is now completely optional.
 
-[Unreleased]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0-beta.4...HEAD
+[Unreleased]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0-beta.4...3.0.0
 [3.0.0-beta.4]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0-beta.3...3.0.0-beta.4
 [3.0.0-beta.3]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0-beta.2...3.0.0-beta.3
 [3.0.0-beta.2]: https://github.com/latextemplates/scientific-thesis-template/compare/3.0.0-beta.1...3.0.0-beta.2
