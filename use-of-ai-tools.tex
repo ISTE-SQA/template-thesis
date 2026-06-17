@@ -1,0 +1,42 @@
+% !TeX root = main-english.tex
+% !TeX spellcheck = en-US
+% !TeX encoding = utf8
+% -*- coding:utf-8 mod:LaTeX -*-
+
+\chapter{Use of AI Tools}
+\label{chap:useofaitools}
+
+In \cref{tab:appendix:ai-tools}, list all AI tools that you have used in the preparation of this thesis, including the type of usage and the location of adoption. 
+This is important for transparency and to acknowledge the contributions of these tools to your work.
+\Cref{tab:appendix:ai-tools} already lists some examples of AI tools and their usage, but you should update it to reflect the specific tools you have used and how they contributed to your thesis.
+
+\newcommand{\copilotclaude}{GitHub Copilot (Claude Sonnet 4.6)}
+\newcommand{\chatgptfree}{ChatGPT Free}
+\newcommand{\copilotgpt}{GitHub Copilot (GPT 5.4)}
+\newcommand{\claudesonnet}{Claude Sonnet 4.6}
+\newcommand{\geminipro}{Gemini 3.1 Pro}
+
+\begin{longtable}{@{} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.50\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} @{}}
+  \caption{AI tools used in the preparation of this thesis.}
+  \label{tab:appendix:ai-tools}\\
+  \toprule
+  \textbf{AI Tool} & \textbf{Type of Usage} & \textbf{Location of Adoption} \\
+  \midrule
+  \endfirsthead
+  \multicolumn{3}{l}{\small\itshape (continued from previous page)}\\
+  \toprule
+  \textbf{AI Tool} & \textbf{Type of Usage} & \textbf{Location of Adoption} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{3}{r}{\small\itshape (continued on next page)}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  DeepL & Translation to German from the English version & Abstract / Kurzfassung\\
+  Grammarly & Writing assistance & Whole thesis\\
+  \copilotclaude & Generation of Python scripts for evaluation figures & \Cref{fig:eval-1}, \Cref{fig:eval-2}\\
+  \geminipro & Figure generation & \Cref{fig:generatedFigure}\\
+  \copilotclaude & Text generation based on bullet points and partial draft text & \Cref{chap:introduction}\\
+  \chatgptfree, \geminipro, \copilotclaude & Text improvements & \Cref{chap:introduction}\\
+\end{longtable}
